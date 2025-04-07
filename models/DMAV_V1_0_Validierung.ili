@@ -39,7 +39,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFP3 doit être <= 15 cm (NT1)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFP3 deve essere inferiore a <= 15 cm  (GT1)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031252: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS1") => (Lagegenauigkeit < 0.15)
             );
@@ -49,7 +49,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFP3 doit être <= 15 cm (NT2)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFP3 deve essere inferiore a <= 15 cm  (GT2)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031253: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS2") => (Lagegenauigkeit < 0.15)
             );
@@ -59,7 +59,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFP3 doit être <= 15 cm (NT3)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFP3 deve essere inferiore a <= 15 cm  (GT3)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031254: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS3") => (Lagegenauigkeit < 0.15)
             );
@@ -69,7 +69,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFP3 doit être <= 30 cm (NT4)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFP3 deve essere inferiore a <= 30 cm  (GT4)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031255: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS4") => (Lagegenauigkeit < 0.3)
             );
@@ -79,7 +79,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFP3 doit être <= 30 cm (NT5)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFP3 deve essere inferiore a <= 30 cm  (GT5)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031256: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS5") => (Lagegenauigkeit < 0.3)
             );
@@ -89,7 +89,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFP3 doit être <= 24 cm (NT1)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFP3 deve essere inferiore a <= 24 cm  (GT1)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031454: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS1") => (Hoehengenauigkeit < 0.24)
             );
@@ -99,7 +99,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFP3 doit être <= 24 cm (NT2)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFP3 deve essere inferiore a <= 24 cm  (GT2)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031455: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS2") => (Hoehengenauigkeit < 0.24)
             );
@@ -109,7 +109,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFP3 doit être <= 24 cm (NT3)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFP3 deve essere inferiore a <= 24 cm  (GT3)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031456: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS3") => (Hoehengenauigkeit < 0.24)
             );
@@ -119,7 +119,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFP3 doit être <= 45 cm (NT4)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFP3 deve essere inferiore a <= 45 cm  (GT4)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031457: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS4") => (Hoehengenauigkeit < 0.45)
             );
@@ -129,7 +129,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFP3 doit être <= 45 cm (NT5)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFP3 deve essere inferiore a <= 45 cm  (GT5)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH031458: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS5") => (Hoehengenauigkeit < 0.45)
             );
@@ -154,7 +154,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFA3 doit être <= 30 cm (NT1)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFA3 deve essere inferiore a <= 30 cm  (GT1)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033652: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS1") => (Lagegenauigkeit < 0.3)
             );
@@ -164,7 +164,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFA3 doit être <= 30 cm (NT2)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFA3 deve essere inferiore a <= 30 cm  (GT2)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033653: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS2") => (Lagegenauigkeit < 0.3)
             );
@@ -174,7 +174,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFA3 doit être <= 60 cm (NT3)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFA3 deve essere inferiore a <= 60 cm  (GT3)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033654: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS3") => (Lagegenauigkeit < 0.6)
             );
@@ -184,7 +184,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFA3 doit être <= 150 cm (NT4)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFA3 deve essere inferiore a <= 150 cm  (GT4)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033655: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS4") => (Lagegenauigkeit < 1.5)
             );
@@ -194,7 +194,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionPlanimetrie du PFA3 doit être <= 300 cm (NT5)";
             !!@ ilivalid.msg_it="La PrecisionePlanimetrica del PFA3 deve essere inferiore a <= 300 cm  (GT5)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033656: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS5") => (Lagegenauigkeit < 3.0)
             );
@@ -204,7 +204,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFA3 doit être <= 2.1 cm (NT1)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFA3 deve essere inferiore a <= 2.1 cm  (GT1)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033852: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS1") => (Hoehengenauigkeit < 0.021)
             );
@@ -214,7 +214,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFA3 doit être <= 2.1 cm (NT2)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFA3 deve essere inferiore a <= 2.1 cm  (GT2)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033853: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS2") => (Hoehengenauigkeit < 0.021)
             );
@@ -224,7 +224,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFA3 doit être <= 2.1 cm (NT3)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFA3 deve essere inferiore a <= 2.1 cm  (GT3)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033854: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS3") => (Hoehengenauigkeit < 0.021)
             );
@@ -234,7 +234,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFA3 doit être <= 2.1 cm (NT4)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFA3 deve essere inferiore a <= 2.1 cm  (GT4)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033855: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS4") => (Hoehengenauigkeit < 0.021)
             );
@@ -244,7 +244,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="PrecisionAltimetrie du PFA3 doit être <= 2.1 cm (NT5)";
             !!@ ilivalid.msg_it="La PrecisioneAltimetrica del PFA3 deve essere inferiore a <= 2.1 cm  (GT5)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH033856: (
                 (DMAV_Toleranzstufe(Geometrie) == "TS5") => (Hoehengenauigkeit < 0.021)
             );
@@ -266,7 +266,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le périmètre doit être identique au périmètre de référence des biens-fonds (tolérance 2 mm)";
             !!@ ilivalid.msg_it="Il perimetro deve coincidere con il perimetro di riferimento del bene immobile (Tolleranza 2 mm)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             SET CONSTRAINT CH043451 WHERE Objektstatus==#real:
                 DMAV_vergleichePerimeter(DMAV_Perimeter(ALL,"Geometrie"),"Liegenschaft",0.002);
 
@@ -275,7 +275,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le PointMesure ne doit pas être un point_limite, PFP1, PFP2 ou PFP3";
             !!@ ilivalid.msg_it="Il punto di misura non deve essere un punto limite, PFP1, PFP2 o PFP3.";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH043452: (
                 NOT(DMAV_PunktIn(Geometrie,"LFP1,LFP2,LFP3,Grenzpunkt"))
             );
@@ -284,7 +284,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Der gleiche EGID (Topic BB) wird für verschiedene Gebäude verwendet";
             !!@ ilivalid.msg_fr="Le même EGID (topic CS) est renseigné pour plusieurs bâtiments différents";
             !!@ ilivalid.msg_it="Lo stesso EGID (topic CS) è assegnato a più edifici differenti";
-            !!@ Umsetzung Phase 1; -> Kommentar Romedi: Ich glaube hier geht es darum, alle EGIDs in allen Gemeinden zu vergleichen, nicht nur innerhalb des getesteten Operats -> noch mit Rolf Stucki zu klären
+            !! Umsetzung Phase 1; -> Kommentar Romedi: Ich glaube hier geht es darum, alle EGIDs in allen Gemeinden zu vergleichen, nicht nur innerhalb des getesteten Operats -> noch mit Rolf Stucki zu klären
             SET CONSTRAINT GWRA09 WHERE Bodenbedeckungsart==#Gebaeude:
                 DMAV_Unique(ALL,"EGID");
 
@@ -293,7 +293,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="L'EGID n'existe pas dans le RegBL";
             !!@ ilivalid.msg_it="L'EGID non esiste nel REA";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT GWRC02b: (
                 DEFINED(EGID) => DMAV_GWR("C02")
             );
@@ -622,7 +622,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le PointMesure ne doit pas être un point_limite, PFP1, PFP2 ou PFP3";
             !!@ ilivalid.msg_it="Il punto di misura non deve essere un punto limite, PFP1, PFP2 o PFP3.";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH054351: (
                 NOT(DMAV_PunktIn(Geometrie,"LFP1,LFP2,LFP3,Grenzpunkt"))
             );
@@ -631,7 +631,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="EGID existiert nicht im GWR";
             !!@ ilivalid.msg_fr="L'EGID n'existe pas dans le RegBL";
             !!@ ilivalid.msg_it="L'EGID non esiste nel REA";
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC02c: (
                 DEFINED(EGID) => DMAV_GWR("C02")
             );
@@ -653,7 +653,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le périmètre doit être identique au périmètre de référence des biens-fonds (tolérance 2 mm)";
             !!@ ilivalid.msg_it="Il perimetro deve corrispondere con quello dei beni immobili (Tolleranza 2 mm)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             SET CONSTRAINT CH070951 WHERE DEFINED(Entstehung) AND NOT(DEFINED(Untergang)):
                 DMAV_vergleichePerimeter(DMAV_Perimeter(ALL,"Geometrie"),"Liegenschaft",0.002);
 
@@ -691,7 +691,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Summe der Teilflaechen aus Flaechenmass ist ungleich Gesamtflaechenmass";
             !!@ ilivalid.msg_fr="La somme des parties de surface inscrite sous Superficie n'est pas égale à la donnée correspondante sous SuperficieTotale";
             !!@ ilivalid.msg_it="La somma delle superfici delle parti di Bene_immobile/DSSP/Miniera non corrisponde alla superficie totale del fondo";
-            !!@ Umsetzung Phase 1;
+            !! Umsetzung Phase 1;
             MANDATORY CONSTRAINT CH085952: (
                 Gesamtflaechenmass == (DMAV_Sum(IGS_getRefsByClass(THIS,"Liegenschaft"),"Flaechenmass") + DMAV_Sum(IGS_getRefsByClass(THIS,"SelbstaendigesDauerndesRecht"),"Flaechenmass") + DMAV_Sum(IGS_getRefsByClass(THIS,"Bergwerk"),"Flaechenmass")) 
             );
@@ -700,7 +700,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="EGRID Prüfziffer stimmt nicht";
             !!@ ilivalid.msg_fr="Le caractère de contrôle EGRID est erroné";
             !!@ ilivalid.msg_it="La cifra di controllo EGRID è errata";
-            !!@ Umsetzung Phase 1;
+            !! Umsetzung Phase 1;
             MANDATORY CONSTRAINT CH085551: (
                 DMAV_EGRID(EGRID) 
             );
@@ -718,7 +718,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le point doit figurer dans le PFP3 ou le point_limite, sauf pour les immeubles fictifs.";
             !!@ ilivalid.msg_it="Il punto deve comparire in PFP3 o in point_limite, ad eccezione degli edifici fittizi.";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH086951: (
                 NOT(Fiktiv) => DMAV_PunktIn(Geometrie,"LFP3,Grenzpunkt") 
             );
@@ -746,7 +746,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Bei Grundstueck mit IstVollstaendig=true und mit nur 1 Objekt in SelbstaendigDauerndesRecht muss NummerTeilgrundstueck leer sein";
             !!@ ilivalid.msg_fr="Pour un immeuble dont l'attribut EstComplete=true, et formé d'un seul objet dans la table droit_distinct_permanent, l'attribut PartieNumeroImmeuble doit être vide";
             !!@ ilivalid.msg_it="Per i fondi con integralità=true, e un solo oggetto in DPSSP, numero_parte_fondo deve restare vuoto";
-            !!@ Umsetzung Phase 1;
+            !! Umsetzung Phase 1;
             MANDATORY CONSTRAINT CH087252: (
                 (Grundstueck->IstVollstaendig AND DMAV_AnzahlTeilgrundstueck("Grundstueck->TID","SelbstaendigesDauerndesRecht") == 1) => NOT(DEFINED(NummerTeilgrundstueck)) 
             );
@@ -755,7 +755,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Fehlender oder unzulässiger Stützpunkt";
             !!@ ilivalid.msg_fr="Il manque un point d'appui, ou bien le point d'appui est erroné";
             !!@ ilivalid.msg_it="La definizione del confine passa per un punto mancante o errato";
-            !!@ Umsetzung Phase 1;
+            !! Umsetzung Phase 1;
             MANDATORY CONSTRAINT CH087351: (
                 DMAV_PunktIn(Geometrie,"LFP1,LFP2,LFP3,Grenzpunkt") 
             );
@@ -778,7 +778,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Bei Grundstueck mit istVollstaendig=true und mit nur 1 Objekt in Bergwerk muss NummerTeilgrundstueck leer sein";
             !!@ ilivalid.msg_fr="Pour un immeuble dont l'attribut EstComplete=true, et formé d'un seul objet dans la table Mine, l'attribut PartieNumeroImmeuble doit être vide";
             !!@ ilivalid.msg_it="Per i fondi con integralità = si, e un solo oggetto in miniera, numero_parte_fondo deve restare vuoto";
-            !!@ Umsetzung Phase 1;
+            !! Umsetzung Phase 1;
             MANDATORY CONSTRAINT CH087652: (
                 (Grundstueck->IstVollstaendig AND DMAV_AnzahlTeilgrundstueck("Grundstueck->TID","Bergwerk") == 1) => NOT(DEFINED(NummerTeilgrundstueck)) 
             );
@@ -821,7 +821,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Commune inconnue ou fausse";
             !!@ ilivalid.msg_it="Il comune è sconosciuto o errato";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH112352: (
                 DMAV_Gemeinde(BFSNummer,Name) 
             );
@@ -846,7 +846,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le périmètre doit être identique au périmètre de référence des biens-fonds (tolérance 2 mm)";
             !!@ ilivalid.msg_it="Il perimetro deve coincidere con il perimetro di riferimento del bene immobile (Tolleranza 2 mm)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             SET CONSTRAINT CH113051 WHERE DEFINED(Entstehung) AND NOT(DEFINED(Untergang)):
                 DMAV_vergleichePerimeter(DMAV_Perimeter(ALL,"Geometrie"),"Liegenschaft",0.002);
         
@@ -861,7 +861,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Grenzverlauf der Bezirksgrenze muss identisch mit Gemeindegrenze sein";
             !!@ ilivalid.msg_fr="Le tracé de la limite de district doit être identique au tracé de la limite communale";
             !!@ ilivalid.msg_it="L'andamento dei confini distrettuali deve corrispondere con quelli comunali";
-            !!@ Umsetzung Phase 1;
+            !! Umsetzung Phase 1;
             MANDATORY CONSTRAINT CH120153: (
                 DMAV_vergleicheGrenzverlauf(Geometrie,"Gemeindegrenze",0.002) 
             );
@@ -877,7 +877,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Grenzverlauf der Kantonsgrenze muss identisch mit Bezirksgrenze sein";
             !!@ ilivalid.msg_fr="Le tracé de la limite du canton doit être identique au tracé de la limite de district";
             !!@ ilivalid.msg_it="L'andamento del confine cantonale deve corrispondere con quelli comunali";
-            !!@ Umsetzung Phase 1;
+            !! Umsetzung Phase 1;
             MANDATORY CONSTRAINT CH130153: (
                 DMAV_vergleicheGrenzverlauf(Geometrie,"Bezirksgrenzabschnitt",0.002) 
             );
@@ -899,7 +899,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le tracé de la limite nationale doit être identique au tracé de la limite du canton";
             !!@ ilivalid.msg_it="L'andamento del confine nazionale deve corrispondere con quello cantonale";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH140153: (
                 DMAV_vergleicheGrenzverlauf(Geometrie,"Kantonsgrenzabschnitt",0.002) 
             );
@@ -921,7 +921,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le périmètre doit être identique au périmètre de référence des biens-fonds (tolérance 2 mm)";
             !!@ ilivalid.msg_it="Il perimetro deve coincidere con il perimetro di riferimento del bene immobile (Tolleranza 2 mm)";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             SET CONSTRAINT CH160351 WHERE DEFINED(Entstehung) AND NOT(DEFINED(Untergang)):
                 DMAV_vergleichePerimeter(DMAV_Perimeter(ALL,"Geometrie"),"Liegenschaft",0.002);
         
@@ -959,7 +959,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="L'EntreeBatiment doit être située à l'intérieur d'une surface de bâtiment ou la valeur de l'attribut DansModule n'est pas correcte";
             !!@ ilivalid.msg_it="L'ingresso dell'edificio deve trovarsi all'interno di un'area edificabile o il valore dell'attributo NelModulo non è corretto.";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH194254: (
                 DEFINED(ImModul) => DMAV_GebaeudeIn(Geometrie,ImModul)
             );
@@ -991,7 +991,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Der gleiche EGID (Topic GEB) wird für verschiedene Gebäude verwendet";
             !!@ ilivalid.msg_fr="Le même EGID (topic BAT) est renseigné pour plusieurs bâtiments différents";
             !!@ ilivalid.msg_it="Lo stesso EGID (topic IED) è assegnato a più edifici differenti";
-            !!@ Umsetzung Phase 1; -> Kommentar Romedi: Ich glaube hier geht es darum, alle EGIDs in allen Gemeinden zu vergleichen, nicht nur innerhalb des getesteten Operats -> noch mit Rolf Stucki zu klären
+            !! Umsetzung Phase 1; -> Kommentar Romedi: Ich glaube hier geht es darum, alle EGIDs in allen Gemeinden zu vergleichen, nicht nur innerhalb des getesteten Operats -> noch mit Rolf Stucki zu klären
             SET CONSTRAINT GWRA09a WHERE (Gebaeudestatus == #real):
                 DMAV_Unique(ALL,"EGID");
 
@@ -1000,7 +1000,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="L'EGID de Batiment=valable dans le topic CS et l'EGID de l’entrée correspondante dans le topic BAT (Dans_batiment=CS + Validite=reel) ne correspondent pas";
             !!@ ilivalid.msg_it="L'EGID dell'edificio=valevole nel topic CS e l'EGID della rispettiva entrata nel topic IE (In_Edificio=CS + Validita=reale) non corrispondono";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRA17: (
                 DMAV_GWR("A17")
             );
@@ -1010,7 +1010,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="La localisation utilisée dans la MO n'a pas été trouvée dans le RegBL";
             !!@ ilivalid.msg_it="La localizzazione presente nella MU non si trova nel REA";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRB01: (
                 DMAV_GWR("B01")
             );
@@ -1020,7 +1020,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="La désignation de la rue utilisée dans le RegBL n'existe pas dans la MO";
             !!@ ilivalid.msg_it="La designazione della via presente nel REA non si trova nella MU";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRB02: (
                 DMAV_GWR("B02")
             );
@@ -1030,7 +1030,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Localisation manquante dans la MO";
             !!@ ilivalid.msg_it="Manca la localizzazione nella MU";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT GWRB03: (
                 DEFINED(Lokalisation)
             );
@@ -1040,7 +1040,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Numéro de maison manquant dans la MO";
             !!@ ilivalid.msg_it="Nella MU manca il numero civico";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 2;
+            !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT GWRB04: (
                 DEFINED(Lokalisation) => DEFINED(Hausnummer)
             );
@@ -1049,7 +1049,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Die Gebäudeadresse in der AV ist nicht eindeutig";
             !!@ ilivalid.msg_fr="L'EGID n'existe pas dans le RegBL";
             !!@ ilivalid.msg_it="L'indirizzo dell'edificio nella MU non è univoco";
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRB05: (
                 (Gebaeudestatus == #real) => DMAV_GWR("B05")
             );
@@ -1059,7 +1059,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Si Validite=projete, il faut que Attributs_provisoires=true";
             !!@ ilivalid.msg_it="L'EGID non esiste nel REA";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC02: (
                 DEFINED(EGID) => DMAV_GWR("C02")
             );
@@ -1069,7 +1069,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="La combinaison EGID/EDID n'existe pas dans le RegBL";
             !!@ ilivalid.msg_it="La combinazione EGID/EDID non esiste nel REA";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC03: (
                 (DEFINED(EGID) AND DEFINED(EDID)) => DMAV_GWR("C03")
             );
@@ -1079,7 +1079,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="EGID (existant) du RegBL n'existe pas dans la MO et n'est pas non plus en projet";
             !!@ ilivalid.msg_it="L'EGID (esistente) nel REA non è presente nella MU neppure sotto forma di progetto";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC04: (
                 DMAV_GWR("C04")
             );
@@ -1089,7 +1089,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="EGID (existant) du RegBL n'est pas mis à jour dans la MO";
             !!@ ilivalid.msg_it="L'EGID (esistente) nel REA non è aggiornato nella MU";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC05: (
                 DMAV_GWR("C05")
             );
@@ -1099,7 +1099,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="EGID (en projet / autorisé / en construction / non réalisé) du RegBL est réel dans la MO";
             !!@ ilivalid.msg_it="L'EGID (progettato / autorizzato / in fase di realizzazione / non realizzato) nel REA è reale nella MU";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC07: (
                 DMAV_GWR("C07")
             );
@@ -1109,7 +1109,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Adresse du bâtiment identique entre la MO et le RegBL avec un EGID/EDID différent";
             !!@ ilivalid.msg_it="Indirizzi identici con differenti EGID/EDID nella MU e nel REA";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC08: (
                 DMAV_GWR("C08")
             );
@@ -1119,7 +1119,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="EGID/EDID identique avec adresse du bâtiment différente entre la MO et le RegBL";
             !!@ ilivalid.msg_it="EGID/EDID identici con differenti indirizzi dell'edificio nella MU e nel REA";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC09: (
                 DMAV_GWR("C09")
             );
@@ -1129,7 +1129,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="EGID/EDID et adresse du bâtiment identiques dans la MO et le RegBL à l'exception de NPA/localité";
             !!@ ilivalid.msg_it="L'indirizzo dell'edificio e l'EGID/EDID sono identici nella MU e nel REA ma non i CAP/località";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC10: (
                 DMAV_GWR("C10")
             );
@@ -1139,7 +1139,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_fr="Le bâtiment compte moins d'entrées dans la MO que dans le RegBL";
             !!@ ilivalid.msg_it="L'edificio ha meno entrate nella MU che nel REA";
             !! Kategorie: modellübergreifend
-            !!@ Umsetzung Phase 3;
+            !! Umsetzung Phase 3;
             MANDATORY CONSTRAINT GWRC13: (
                 DMAV_GWR("C13")
             );
