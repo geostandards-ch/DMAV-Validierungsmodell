@@ -1,0 +1,31 @@
+name: Compile INTERLIS models
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  compile_all:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+      
+    - name: setup java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        java-package: 'jre'
+
+    - name: setup ili2c
+      run: |
+        curl -O https://downloads.interlis.ch/ili2c/ili2c-5.6.3.zip
+        unzip ili2c-5.6.3.zip ili2c.jar
+
+    - name: compile ili files
+      env:
+        FILES: ./models/*.ili
+      run: for f in $FILES; do java -jar ili2c.jar $f; done
+
