@@ -284,7 +284,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Der gleiche EGID (Topic BB) wird für verschiedene Gebäude verwendet";
             !!@ ilivalid.msg_fr="Le même EGID (topic CS) est renseigné pour plusieurs bâtiments différents";
             !!@ ilivalid.msg_it="Lo stesso EGID (topic CS) è assegnato a più edifici differenti";
-            !! Umsetzung Phase 1; -> Kommentar Romedi: Ich glaube hier geht es darum, alle EGIDs in allen Gemeinden zu vergleichen, nicht nur innerhalb des getesteten Operats -> noch mit Rolf Stucki zu klären
+            !! Umsetzung Phase 1; -> Kommentar Romedi: Gilt nur innerhalb eines Operats. Vergleich eindeutige EGID in Gebäudenummer und Gebäudeeingang
             SET CONSTRAINT GWRA09 WHERE Bodenbedeckungsart==#Gebaeude:
                 DMAV_Unique(ALL,"EGID");
 
@@ -992,7 +992,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Der gleiche EGID (Topic GEB) wird für verschiedene Gebäude verwendet";
             !!@ ilivalid.msg_fr="Le même EGID (topic BAT) est renseigné pour plusieurs bâtiments différents";
             !!@ ilivalid.msg_it="Lo stesso EGID (topic IED) è assegnato a più edifici differenti";
-            !! Umsetzung Phase 1; -> Kommentar Romedi: Ich glaube hier geht es darum, alle EGIDs in allen Gemeinden zu vergleichen, nicht nur innerhalb des getesteten Operats -> noch mit Rolf Stucki zu klären
+            !! Umsetzung Phase 1; -> Kommentar Romedi: Gilt nur innerhalb eines Operats. Vergleich eindeutige EGID in Gebäudenummer und Gebäudeeingang
             SET CONSTRAINT GWRA09a WHERE (Gebaeudestatus == #real):
                 DMAV_Unique(ALL,"EGID");
 
