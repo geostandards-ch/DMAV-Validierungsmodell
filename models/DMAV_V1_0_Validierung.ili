@@ -691,10 +691,8 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Summe der Teilflaechen aus Flaechenmass ist ungleich Gesamtflaechenmass";
             !!@ ilivalid.msg_fr="La somme des parties de surface inscrite sous Superficie n'est pas égale à la donnée correspondante sous SuperficieTotale";
             !!@ ilivalid.msg_it="La somma delle superfici delle parti di Bene_immobile/DSSP/Miniera non corrisponde alla superficie totale del fondo";
-            !! Umsetzung Phase 1;
-            MANDATORY CONSTRAINT CH085952: (
-                Gesamtflaechenmass == (DMAV_Sum(IGS_getRefsByClass(THIS,"Liegenschaft"),"Flaechenmass") + DMAV_Sum(IGS_getRefsByClass(THIS,"SelbstaendigesDauerndesRecht"),"Flaechenmass") + DMAV_Sum(IGS_getRefsByClass(THIS,"Bergwerk"),"Flaechenmass")) 
-            );
+            MANDATORY CONSTRAINT CH085952: 
+                Gesamtflaechenmass == Math_V2.add(Math_V2.add(Math_V2.sum("THIS->Liegenschaft->Flaechenmass"),Math_V2.sum("THIS->SelbstaendigesDauerndesRecht->Flaechenmass")),Math_V2.sum("THIS->Bergwerk->Flaechenmass"));
 
             !!@ ilivalid.msg="EGRID Prüfziffer stimmt nicht";
             !!@ ilivalid.msg_de="EGRID Prüfziffer stimmt nicht";
@@ -746,10 +744,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Bei Grundstueck mit IstVollstaendig=true und mit nur 1 Objekt in SelbstaendigDauerndesRecht muss NummerTeilgrundstueck leer sein";
             !!@ ilivalid.msg_fr="Pour un immeuble dont l'attribut EstComplete=true, et formé d'un seul objet dans la table droit_distinct_permanent, l'attribut PartieNumeroImmeuble doit être vide";
             !!@ ilivalid.msg_it="Per i fondi con integralità=true, e un solo oggetto in DPSSP, numero_parte_fondo deve restare vuoto";
-            !! Umsetzung Phase 1;
-            MANDATORY CONSTRAINT CH087252: (
-                (Grundstueck->IstVollstaendig AND DMAV_AnzahlTeilgrundstueck("Grundstueck->TID","SelbstaendigesDauerndesRecht") == 1) => NOT(DEFINED(NummerTeilgrundstueck)) 
-            );
+            MANDATORY CONSTRAINT CH087252: (Grundstueck->IstVollstaendig AND INTERLIS.objectCount(THIS->SelbstaendigesDauerndesRecht) == 1) => NOT(DEFINED(THIS->SelbstaendigesDauerndesRecht->NummerTeilgrundstueck));
 
             !!@ ilivalid.msg="Fehlender oder unzulässiger Stützpunkt";
             !!@ ilivalid.msg_de="Fehlender oder unzulässiger Stützpunkt";
@@ -779,10 +774,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Bei Grundstueck mit istVollstaendig=true und mit nur 1 Objekt in Bergwerk muss NummerTeilgrundstueck leer sein";
             !!@ ilivalid.msg_fr="Pour un immeuble dont l'attribut EstComplete=true, et formé d'un seul objet dans la table Mine, l'attribut PartieNumeroImmeuble doit être vide";
             !!@ ilivalid.msg_it="Per i fondi con integralità = si, e un solo oggetto in miniera, numero_parte_fondo deve restare vuoto";
-            !! Umsetzung Phase 1;
-            MANDATORY CONSTRAINT CH087652: (
-                (Grundstueck->IstVollstaendig AND DMAV_AnzahlTeilgrundstueck("Grundstueck->TID","Bergwerk") == 1) => NOT(DEFINED(NummerTeilgrundstueck)) 
-            );
+            MANDATORY CONSTRAINT CH087652: (Grundstueck->IstVollstaendig AND INTERLIS.objectCount(THIS->Bergwerk) == 1) => NOT(DEFINED(THIS->Bergwerk->NummerTeilgrundstueck));
 
         END v_Bergwerk;
 
