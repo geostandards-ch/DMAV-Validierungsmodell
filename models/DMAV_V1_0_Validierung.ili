@@ -954,6 +954,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
 
     END HoheitsgrenzenAV_Validierung;
 
+    /*
     VIEW TOPIC HoheitsgrenzenLV_Validierung = 
     DEPENDS ON DMAV_HoheitsgrenzenLV_V1_0.HoheitsgrenzenLV;
   
@@ -968,15 +969,14 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_it="L'andamento del confine nazionale deve corrispondere con quello cantonale";
             !! Kategorie: modellübergreifend
             !! Umsetzung Phase 2;
-            /*
             MANDATORY CONSTRAINT CH140153: (
                 DMAV_vergleicheGrenzverlauf(Geometrie,"Kantonsgrenzabschnitt",0.002) 
             );
-            */
 
         END v_Landesgrenze;
 
     END HoheitsgrenzenLV_Validierung;
+    */
 
     VIEW TOPIC Toleranzstufen_Validierung = 
     DEPENDS ON DMAV_Toleranzstufen_V1_0.Toleranzstufen;
