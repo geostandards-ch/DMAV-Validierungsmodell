@@ -883,17 +883,6 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             );
             */
 
-            !!@ ilivalid.msg="Gemeindegrenze fehlt";
-            !!@ ilivalid.msg_de="Gemeindegrenze fehlt";
-            !!@ ilivalid.msg_fr="Il manque la limite communale";
-            !!@ ilivalid.msg_it="Manca la geometria del Comune";
-            !! Phase 2;
-            /*
-            MANDATORY CONSTRAINT CH112951: (
-                INTERLIS.objectCount(IGS_getRefsByClass(THIS,"Gemeindegrenze")) > 0 
-            );
-            */
-
         END v_Gemeinde;
 
         VIEW v_Gemeindegrenze
