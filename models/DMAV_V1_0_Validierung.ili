@@ -324,6 +324,16 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             );
             */
 
+            !!@ ilivalid.msg="Gebäude hat keinen EGID";
+            !!@ ilivalid.msg_de="MGebäude hat keinen EGID";
+            !!@ ilivalid.msg_fr="Le bâtiment n'a pas d'EGID";
+            !!@ ilivalid.msg_it="L'edificio non ha un EGID";
+            !! Kategorie: modellübergreifend
+            !! Umsetzung Phase 2;
+            
+            MANDATORY CONSTRAINT CH043453 WHERE (Objektstatus == #real) AND (Bodenbedeckungsart == #Gebaeude):
+                 DEFINED(EGID);
+
             !!@ ilivalid.msg="Der gleiche EGID (Topic BB) wird für verschiedene Gebäude verwendet";
             !!@ ilivalid.msg_de="Der gleiche EGID (Topic BB) wird für verschiedene Gebäude verwendet";
             !!@ ilivalid.msg_fr="Le même EGID (topic CS) est renseigné pour plusieurs bâtiments différents";
@@ -340,9 +350,8 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_it="L'EGID non esiste nel REA";
             !! Umsetzung Phase 3;
             /*
-            MANDATORY CONSTRAINT GWRC02b: (
-                DEFINED(EGID) => DMAV_GWR("C02")
-            );
+            MANDATORY CONSTRAINT GWRC02a WHERE DEFINED(EGID):
+                 DMAV_GWR("C02");
             */
 
         END v_Bodenbedeckung;
@@ -942,30 +951,6 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
 
     END HoheitsgrenzenAV_Validierung;
 
-    /*
-    VIEW TOPIC HoheitsgrenzenLV_Validierung = 
-    DEPENDS ON DMAV_HoheitsgrenzenLV_V1_0.HoheitsgrenzenLV;
-  
-        VIEW v_Landesgrenze
-            PROJECTION OF DMAV_HoheitsgrenzenLV_V1_0.HoheitsgrenzenLV.Landesgrenze;
-        =
-            ALL OF Landesgrenze;
-
-            !!@ ilivalid.msg="Grenzverlauf der Landesgrenze muss identisch mit Kantonsgrenze sein";
-            !!@ ilivalid.msg_de="Grenzverlauf der Landesgrenze muss identisch mit Kantonsgrenze sein";
-            !!@ ilivalid.msg_fr="Le tracé de la limite nationale doit être identique au tracé de la limite du canton";
-            !!@ ilivalid.msg_it="L'andamento del confine nazionale deve corrispondere con quello cantonale";
-            !! Kategorie: modellübergreifend
-            !! Umsetzung Phase 2;
-            MANDATORY CONSTRAINT CH140153: (
-                DMAV_vergleicheGrenzverlauf(Geometrie,"Kantonsgrenzabschnitt",0.002) 
-            );
-
-        END v_Landesgrenze;
-
-    END HoheitsgrenzenLV_Validierung;
-    */
-
     VIEW TOPIC Toleranzstufen_Validierung = 
     DEPENDS ON DMAV_Toleranzstufen_V1_0.Toleranzstufen;
   
@@ -1049,20 +1034,20 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
                 DEFINED(EGID) => DEFINED(EDID)
             );
 
-            !!@ ilivalid.msg="Der gleiche EGID (Topic GEB) wird für verschiedene Gebäude verwendet";
-            !!@ ilivalid.msg_de="Der gleiche EGID (Topic GEB) wird für verschiedene Gebäude verwendet";
-            !!@ ilivalid.msg_fr="Le même EGID (topic BAT) est renseigné pour plusieurs bâtiments différents";
-            !!@ ilivalid.msg_it="Lo stesso EGID (topic IED) è assegnato a più edifici differenti";
+            !!@ ilivalid.msg="Der gleiche EGID, EDID wird für verschiedene Gebäude verwendet";
+            !!@ ilivalid.msg_de="Der gleiche EGID, EDID wird für verschiedene Gebäude verwendet";
+            !!@ ilivalid.msg_fr="Le même EGID, EDID est renseigné pour plusieurs bâtiments différents";
+            !!@ ilivalid.msg_it="LLo stesso EGID, EDID è assegnato a più edifici differenti";
             !! Umsetzung Phase 1; -> Kommentar Romedi: Gilt nur innerhalb eines Operats. Vergleich eindeutige EGID in Gebäudenummer und Gebäudeeingang
             /*
             SET CONSTRAINT GWRA09a: WHERE (Gebaeudestatus == #real):
-                DMAV_Unique(ALL,"EGID");
+                EGID,EDID;
             */
             UNIQUE GWRA09a : WHERE (Gebaeudestatus == #real): EGID;
 
             !!@ ilivalid.msg="EGID von Gebaeude=gueltig in Topic BB und EGID des entsprechenden Gebaeudeeinganges in Topic GEB (Im_Gebaeude=BB + Status=real) stimmen nicht überein";
             !!@ ilivalid.msg_de="EGID von Gebaeude=gueltig in Topic BB und EGID des entsprechenden Gebaeudeeinganges in Topic GEB (Im_Gebaeude=BB + Status=real) stimmen nicht überein";
-            !!@ ilivalid.msg_fr="L'EGID de Batiment=valable dans le topic CS et l'EGID de l’entrée correspondante dans le topic BAT (Dans_batiment=CS + Validite=reel) ne correspondent pas";
+            !!@ ilivalid.msg_fr="L'EGID de Batiment=valable dans le topic CS et l'EGID de lentrée correspondante dans le topic BAT (Dans_batiment=CS + Validite=reel) ne correspondent pas";
             !!@ ilivalid.msg_it="L'EGID dell'edificio=valevole nel topic CS e l'EGID della rispettiva entrata nel topic IE (In_Edificio=CS + Validita=reale) non corrispondono";
             !! Kategorie: modellübergreifend
             !! Umsetzung Phase 2;
