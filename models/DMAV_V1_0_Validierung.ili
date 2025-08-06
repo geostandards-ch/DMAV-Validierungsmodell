@@ -1105,7 +1105,7 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             !!@ ilivalid.msg_de="Die Gebäudeadresse in der AV ist nicht eindeutig";
             !!@ ilivalid.msg_fr="L'EGID n'existe pas dans le RegBL";
             !!@ ilivalid.msg_it="L'indirizzo dell'edificio nella MU non è univoco";
-            !! Umsetzung Phase 3;
+            !! Umsetzung Phase 2;
             /*
             MANDATORY CONSTRAINT GWRB05: (
                 (Gebaeudestatus == #real) => DMAV_GWR("B05")
