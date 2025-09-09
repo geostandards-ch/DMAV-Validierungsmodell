@@ -314,18 +314,6 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
                 DMAV_vergleichePerimeter(DMAV_Perimeter(ALL,"Geometrie"),"Liegenschaft",0.002);
             */
 
-            !!@ ilivalid.msg="Messpunkt darf kein Grenzpunkt, LFP1, LFP2 oder LFP3 sein";
-            !!@ ilivalid.msg_de="Messpunkt darf kein Grenzpunkt, LFP1, LFP2 oder LFP3 sein";
-            !!@ ilivalid.msg_fr="Le PointMesure ne doit pas être un point_limite, PFP1, PFP2 ou PFP3";
-            !!@ ilivalid.msg_it="Il punto di misura non deve essere un punto limite, PFP1, PFP2 o PFP3.";
-            !! Kategorie: modellübergreifend
-            !! Umsetzung Phase 2;
-            /*
-            MANDATORY CONSTRAINT CH043452: (
-                NOT(DMAV_PunktIn(Geometrie,"LFP1,LFP2,LFP3,Grenzpunkt"))
-            );
-            */
-
             !!@ ilivalid.msg="Gebäude hat keinen EGID";
             !!@ ilivalid.msg_de="MGebäude hat keinen EGID";
             !!@ ilivalid.msg_fr="Le bâtiment n'a pas d'EGID";
@@ -355,6 +343,26 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             */
 
         END v_Bodenbedeckung;
+
+        VIEW v_Messpunkt
+            PROJECTION OF DMAV_Bodenbedeckung_V1_0.Bodenbedeckung.Messpunkt;
+        =
+            ALL OF Messpunkt;
+
+            !!@ ilivalid.msg="Messpunkt darf kein Grenzpunkt, LFP1, LFP2 oder LFP3 sein";
+            !!@ ilivalid.msg_de="Messpunkt darf kein Grenzpunkt, LFP1, LFP2 oder LFP3 sein";
+            !!@ ilivalid.msg_fr="Le PointMesure ne doit pas être un point_limite, PFP1, PFP2 ou PFP3";
+            !!@ ilivalid.msg_it="Il punto di misura non deve essere un punto limite, PFP1, PFP2 o PFP3.";
+            !! Kategorie: modellübergreifend
+            !! Umsetzung Phase 2;
+            /*
+            MANDATORY CONSTRAINT CH043452: (
+                NOT(DMAV_PunktIn(Geometrie,"LFP1,LFP2,LFP3,Grenzpunkt"))
+            );
+            */
+
+        END v_Messpunkt;
+        
 
     END Bodenbedeckung_Validierung;
 
