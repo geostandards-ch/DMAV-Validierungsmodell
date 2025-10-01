@@ -672,14 +672,6 @@ IMPORTS DMAV_Gebaeudeadressen_V1_0;
             MANDATORY CONSTRAINT CH052178: (
                 (Einzelobjektart == #uebriger_Gebaeudeteil) => (objectCount(Punktelement) == 0)
             );
-			
-		    !!@ ilivalid.msg="Bei Art=Jauchengrube_Mistlege darf die Geometrie nicht in Punktelement sein";
-            !!@ ilivalid.msg_de="Bei Art=Jauchengrube_Mistlege darf die Geometrie nicht in Punktelement sein";
-            !!@ ilivalid.msg_fr="Pour les objets du Genre=fosse_purin_tas_fumier, la géométrie ne peut pas être définie dans la table Element_ponctuel";
-            !!@ ilivalid.msg_it="Per il genere Pozzo nero la geometria non deve essere del tipo puntiforme";
-            MANDATORY CONSTRAINT CH052178: (
-                (Einzelobjektart == #Jauchengrube_Mistlege) => (objectCount(Punktelement) == 0)
-            );
 
             !!@ ilivalid.msg="EGID existiert nicht im GWR";
             !!@ ilivalid.msg_de="EGID existiert nicht im GWR";
