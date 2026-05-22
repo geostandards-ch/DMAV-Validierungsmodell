@@ -1,14 +1,9 @@
 # DMAV Validierungsmodell
-Umsetzung der offiziellen Prüfregeln zum Datenmodell der Amtlichen Vermessung (DMAV) als Validierungsmodell.
+Umsetzung der offiziellen Prüfregeln zum Datenmodell der Amtlichen Vermessung (DMAV) als Validierungsmodelle.
 
 ## Verzeichnisstruktur
-* `models`: Datenmodelle DMAV + Validierungsmodell (`DMAV_V1_0_Validierung`)
+* `models`: Datenmodelle DMAV + Validierungsmodelle (`DMAV_V1_0_XXX_Validierung`). Für jedes Datenmodell in DMAV liegt das dazugehörige Validierungsmodell als separate Datei bereit. So können einzelne Modellprüfungen ein- oder ausgeschaltet werden.
 * `rules` : Prüfregeln
-
-## Pendenzen
-* alle CONSTRAINT ohne neue Funktionen sind erfasst.
-* alle CONSTRAINT die modellübergreifend sind, sind markiert mit Bemerkung " !! Kategorie: modellübergreifend" 
-* Funktionen die es neu braucht sind mit "DMAV_" gekennzeichnet
 
 ## Arbeitsmethodik
 Dieses Validierungsmodell bildet die Prüfregeln des offiziellen CheckDMAV der swisstopo ab. Die CheckRules von CheckDMAV bilden die Prüfregeln in Excel ab. Bei neuen Constrainst (Prüfregeln) wird die neue Liste per Mail an die registrierten Benutzer von CheckDMAV versendet und in diesem Repository unter den [rules](https://github.com/geostandards-ch/DMAV-Validierungsmodell/tree/main/rules) abgelegt. Ablauf bei neuen Constraints:
