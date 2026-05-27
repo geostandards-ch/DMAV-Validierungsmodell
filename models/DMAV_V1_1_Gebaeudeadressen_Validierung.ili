@@ -1,6 +1,6 @@
-INTERLIS 2.4;
+﻿INTERLIS 2.4;
 
-MODEL DMAV_V1_0_Gebaeudeadressen_Validierung (de) 
+MODEL DMAV_V1_1_Gebaeudeadressen_Validierung (de) 
 AT "https://www.kgk-cgc.ch/" 
 VERSION "2025-03-30" =
   
@@ -10,23 +10,23 @@ IMPORTS UNQUALIFIED Math_V2_1;
 IMPORTS UNQUALIFIED ObjectPool_V1_0;
 IMPORTS UNQUALIFIED Elements_V1_0;
 IMPORTS DMAVTYM_Topologie_V1_0;
-IMPORTS DMAV_FixpunkteAVKategorie3_V1_0;
-IMPORTS DMAV_Bodenbedeckung_V1_0;
-IMPORTS DMAV_Einzelobjekte_V1_0;
-IMPORTS DMAV_Nomenklatur_V1_0;
-IMPORTS DMAV_Grundstuecke_V1_0;
-IMPORTS DMAV_Rohrleitungen_V1_0;
+IMPORTS DMAV_FixpunkteAVKategorie3_V1_1;
+IMPORTS DMAV_Bodenbedeckung_V1_1;
+IMPORTS DMAV_Einzelobjekte_V1_1;
+IMPORTS DMAV_Nomenklatur_V1_1;
+IMPORTS DMAV_Grundstuecke_V1_1;
+IMPORTS DMAV_Rohrleitungen_V1_1;
 IMPORTS DMAV_HoheitsgrenzenAV_V1_0;
-IMPORTS DMAV_Toleranzstufen_V1_0;
-IMPORTS DMAV_Gebaeudeadressen_V1_0;
+IMPORTS DMAV_Toleranzstufen_V1_1;
+IMPORTS DMAV_Gebaeudeadressen_V1_1;
 IMPORTS KGKCGC_FPDS2_V1_1;
 IMPORTS FixpunkteLV_V1_0;
 
     VIEW TOPIC Gebaeudeadressen_Validierung = 
-    DEPENDS ON DMAV_Gebaeudeadressen_V1_0.Gebaeudeadressen;
+    DEPENDS ON DMAV_Gebaeudeadressen_V1_1.Gebaeudeadressen;
   
         VIEW v_Gebaeudeeingang
-            PROJECTION OF DMAV_Gebaeudeadressen_V1_0.Gebaeudeadressen.Gebaeudeeingang;
+            PROJECTION OF DMAV_Gebaeudeadressen_V1_1.Gebaeudeadressen.Gebaeudeeingang;
         =
             ALL OF Gebaeudeeingang;
 
@@ -60,7 +60,7 @@ IMPORTS FixpunkteLV_V1_0;
             !! Umsetzung Phase 2;
             !! Failcase für Testsuite erstellt (Testsuite_DMAV/DMAV_V1_0_Validierung/DMAV_V1_0_Validierung.Gebaeudeadressen_Validierung.v_Gebaeudeeingang.CH194254)
             MANDATORY CONSTRAINT CH194254: (
-                (ImModul == #Bodenbedeckung) => DMAVTYM_Topologie_V1_0.isInside(THIS, >>Geometrie, ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_0.Bodenbedeckung.Bodenbedeckung), "Bodenbedeckungsart == #Gebaeude"), >>DMAV_Bodenbedeckung_V1_0.Bodenbedeckung.Bodenbedeckung->Geometrie)
+                (ImModul == #Bodenbedeckung) => DMAVTYM_Topologie_V1_0.isInside(THIS, >>Geometrie, ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung), "Bodenbedeckungsart == #Gebaeude"), >>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung->Geometrie)
             );  
 
             !!@ category = warning
@@ -109,7 +109,7 @@ IMPORTS FixpunkteLV_V1_0;
             !! Kategorie: modellübergreifend
             !! Umsetzung Phase 2;
             SET CONSTRAINT GWRA17: WHERE (Gebaeudestatus == #real AND ImModul == #Bodenbedeckung): (
-                DMAVTYM_Topologie_V1_0.isInside(THIS, >>Geometrie,(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_0.Bodenbedeckung.Bodenbedeckung), "Objektstatus == #real AND EGID=={EGID} AND Bodenbedeckungsart == #Gebaeude")), >>DMAV_Bodenbedeckung_V1_0.Bodenbedeckung.Bodenbedeckung->Geometrie)
+                DMAVTYM_Topologie_V1_0.isInside(THIS, >>Geometrie,(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung), "Objektstatus == #real AND EGID=={EGID} AND Bodenbedeckungsart == #Gebaeude")), >>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung->Geometrie)
             );
 
             !!@ name = GWRB01
@@ -308,4 +308,4 @@ IMPORTS FixpunkteLV_V1_0;
 
     END Gebaeudeadressen_Validierung;
 
-END DMAV_V1_0_Gebaeudeadressen_Validierung.
+END DMAV_V1_1_Gebaeudeadressen_Validierung.

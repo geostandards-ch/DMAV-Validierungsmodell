@@ -1,6 +1,6 @@
-INTERLIS 2.4;
+﻿INTERLIS 2.4;
 
-MODEL DMAV_V1_0_Grundstuecke_Validierung (de) 
+MODEL DMAV_V1_1_Grundstuecke_Validierung (de) 
 AT "https://www.kgk-cgc.ch/" 
 VERSION "2025-03-30" =
   
@@ -10,23 +10,23 @@ IMPORTS UNQUALIFIED Math_V2_1;
 IMPORTS UNQUALIFIED ObjectPool_V1_0;
 IMPORTS UNQUALIFIED Elements_V1_0;
 IMPORTS DMAVTYM_Topologie_V1_0;
-IMPORTS DMAV_FixpunkteAVKategorie3_V1_0;
-IMPORTS DMAV_Bodenbedeckung_V1_0;
-IMPORTS DMAV_Einzelobjekte_V1_0;
-IMPORTS DMAV_Nomenklatur_V1_0;
-IMPORTS DMAV_Grundstuecke_V1_0;
-IMPORTS DMAV_Rohrleitungen_V1_0;
+IMPORTS DMAV_FixpunkteAVKategorie3_V1_1;
+IMPORTS DMAV_Bodenbedeckung_V1_1;
+IMPORTS DMAV_Einzelobjekte_V1_1;
+IMPORTS DMAV_Nomenklatur_V1_1;
+IMPORTS DMAV_Grundstuecke_V1_1;
+IMPORTS DMAV_Rohrleitungen_V1_1;
 IMPORTS DMAV_HoheitsgrenzenAV_V1_0;
-IMPORTS DMAV_Toleranzstufen_V1_0;
-IMPORTS DMAV_Gebaeudeadressen_V1_0;
+IMPORTS DMAV_Toleranzstufen_V1_1;
+IMPORTS DMAV_Gebaeudeadressen_V1_1;
 IMPORTS KGKCGC_FPDS2_V1_1;
 IMPORTS FixpunkteLV_V1_0;
 
      VIEW TOPIC Grundstuecke_Validierung = 
-    DEPENDS ON DMAV_Grundstuecke_V1_0.Grundstuecke;
+    DEPENDS ON DMAV_Grundstuecke_V1_1.Grundstuecke;
   
         VIEW v_Grundstueck
-            PROJECTION OF DMAV_Grundstuecke_V1_0.Grundstuecke.Grundstueck;
+            PROJECTION OF DMAV_Grundstuecke_V1_1.Grundstuecke.Grundstueck;
         =
             ALL OF Grundstueck;
 
@@ -64,7 +64,7 @@ IMPORTS FixpunkteLV_V1_0;
         END v_Grundstueck;
 
         VIEW v_Liegenschaft
-            PROJECTION OF DMAV_Grundstuecke_V1_0.Grundstuecke.Liegenschaft;
+            PROJECTION OF DMAV_Grundstuecke_V1_1.Grundstuecke.Liegenschaft;
         =
             ALL OF Liegenschaft;
 
@@ -79,8 +79,8 @@ IMPORTS FixpunkteLV_V1_0;
             !! Failcase für Testsuite erstellt (Testsuite_DMAV/DMAV_V1_0_Validierung/DMAV_V1_0_Validierung.Grundstuecke_Validierung.v_Liegenschaft_CH086951)
             MANDATORY CONSTRAINT CH086951: (
                 NOT(Grundstueck->Fiktiv) => (DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, Elements_V1_0.concat(
-                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_0.Grundstuecke.Grenzpunkt), "Geometrie"),
-                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_0.FixpunkteAVKategorie3.LFP3), "Geometrie")), UNDEFINED))
+                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_1.Grundstuecke.Grenzpunkt), "Geometrie"),
+                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_1.FixpunkteAVKategorie3.LFP3), "Geometrie")), UNDEFINED))
                 );
 
             !!@ name = CH086852
@@ -104,7 +104,7 @@ IMPORTS FixpunkteLV_V1_0;
         END v_Liegenschaft;
 
         VIEW v_SelbstaendigesDauerndesRecht
-            PROJECTION OF DMAV_Grundstuecke_V1_0.Grundstuecke.SelbstaendigesDauerndesRecht;
+            PROJECTION OF DMAV_Grundstuecke_V1_1.Grundstuecke.SelbstaendigesDauerndesRecht;
         =
             ALL OF SelbstaendigesDauerndesRecht;
 
@@ -135,8 +135,8 @@ IMPORTS FixpunkteLV_V1_0;
             !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH087351: (
                 NOT(Grundstueck->Fiktiv) => (DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, Elements_V1_0.concat(Elements_V1_0.concat(Elements_V1_0.concat(
-                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_0.Grundstuecke.Grenzpunkt), "Geometrie"),
-                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_0.FixpunkteAVKategorie3.LFP3), "Geometrie")),
+                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_1.Grundstuecke.Grenzpunkt), "Geometrie"),
+                                                Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_1.FixpunkteAVKategorie3.LFP3), "Geometrie")),
                                                 Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>KGKCGC_FPDS2_V1_1.FPDS2.FixpunktVersion),"NOT(DEFINED(UntergegangenAm))"), "Geometrie")),
                                                 Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>FixpunkteLV_V1_0.FixpunkteLV.LFP1), "Geometrie")), UNDEFINED))
                 );
@@ -144,7 +144,7 @@ IMPORTS FixpunkteLV_V1_0;
         END v_SelbstaendigesDauerndesRecht;
 
         VIEW v_Bergwerk
-            PROJECTION OF DMAV_Grundstuecke_V1_0.Grundstuecke.Bergwerk;
+            PROJECTION OF DMAV_Grundstuecke_V1_1.Grundstuecke.Bergwerk;
         =
             ALL OF Bergwerk;
 
@@ -170,4 +170,4 @@ IMPORTS FixpunkteLV_V1_0;
 
     END Grundstuecke_Validierung;
 
-END DMAV_V1_0_Grundstuecke_Validierung.
+END DMAV_V1_1_Grundstuecke_Validierung.

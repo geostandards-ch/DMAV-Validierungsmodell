@@ -11,18 +11,27 @@ INTERLIS 2.4;
 !! www.cadastre.ch und www.interlis.ch
 !!
 !! Version: 1 deutsch
-!! Dateiname: DMAV_Toleranzstufen_V1_0.ili
+!! Dateiname: DMAV_Toleranzstufen_V1_1.ili
 !!
 !! Das vorliegende Datenmodell gilt fuer den Bezugsrahmen "Landesvermessung 1903+
 !! (LV95)".
 !!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+!! Typ: A=Änderung, E=Ergänzung, L=Löschung
+!!
+!! Version    | Line  | Typ | Bemerkung
+!!------------|-------|-----|-------------------------------------------------------------
+!! 2026-01-31 |     50|  A  | Geometrie: MANDATORY AREA WITH (STRAIGHTS, ARCS) VERTEX 
+!!            |       |     | GeometryCHLV95_V2.Coord2 WITHOUT OVERLAPS > 0.002;
+!! 2026-01-31 |  66-70|  L  | ASSOCIATION Untergang_Toleranzstufe
+!! 2026-01-31 | 98-102|  L  | VIEW Toleranzstufe_Gueltig
+
 !!@ technicalContact = mailto:dmav@swisstopo.ch
 !!@ furtherInformation = https://www.cadastre-manual.admin.ch/de/modelldokumentation-dmav
 !!@ IDGeoIV = "228.11"
-MODEL DMAV_Toleranzstufen_V1_0 (de)
-  AT "https://models.geo.admin.ch/V_D/" VERSION "2024-09-20" =
+MODEL DMAV_Toleranzstufen_V1_1 (de)
+  AT "https://models.geo.admin.ch/V_D/" VERSION "2026-01-31" =
   IMPORTS GeometryCHLV95_V2;
 
   TOPIC Toleranzstufen =
@@ -42,7 +51,7 @@ MODEL DMAV_Toleranzstufen_V1_0 (de)
     CLASS Toleranzstufe =
       NBIdent: MANDATORY TEXT*12;
       Identifikator: TEXT*12;  !! z.B. Nummer des technischen Dossiers
-      Geometrie: MANDATORY SURFACE WITH (STRAIGHTS, ARCS) VERTEX GeometryCHLV95_V2.Coord2
+      Geometrie: MANDATORY AREA WITH (STRAIGHTS, ARCS) VERTEX GeometryCHLV95_V2.Coord2
         WITHOUT OVERLAPS > 0.002;
       Toleranzstufe: MANDATORY (
         TS1,
@@ -57,20 +66,7 @@ MODEL DMAV_Toleranzstufen_V1_0 (de)
       Entstehung -- {1} TSNachfuehrung;
       entstehende_Toleranzstufe -- {0..*} Toleranzstufe;
     END Entstehung_Toleranzstufe;
-    
-    ASSOCIATION Untergang_Toleranzstufe =
-      Untergang -- {0..1} TSNachfuehrung;
-      untergehendes_Toleranzstufe -- {0..*} Toleranzstufe;
-    END Untergang_Toleranzstufe;
-    
-    VIEW Toleranzstufe_Gueltig
-     	PROJECTION OF TS~Toleranzstufe;
-    	WHERE DEFINED(TS->Entstehung) AND NOT( DEFINED(TS->Untergang));
-    	=
-    	ALL OF TS;
-      SET CONSTRAINT CH110501: INTERLIS.areAreas(ALL, UNDEFINED, >> Geometrie);
-    END Toleranzstufe_Gueltig;
 
   END Toleranzstufen;
  
-END DMAV_Toleranzstufen_V1_0.
+END DMAV_Toleranzstufen_V1_1.

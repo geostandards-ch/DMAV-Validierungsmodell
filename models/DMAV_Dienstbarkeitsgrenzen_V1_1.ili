@@ -11,18 +11,24 @@ INTERLIS 2.4;
 !! www.cadastre.ch und www.interlis.ch
 !!
 !! Version: 1 deutsch
-!! Dateiname: DMAV_Dienstbarkeitsgrenzen_V1_0.ili
+!! Dateiname: DMAV_Dienstbarkeitsgrenzen_V1_1.ili
 !!
 !! Das vorliegende Datenmodell gilt fuer den Bezugsrahmen "Landesvermessung 1903+
 !! (LV95)".
 !!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+!! Typ: A=Änderung, E=Ergänzung, L=Löschung
+!!
+!! Version    | Line  | Typ | Bemerkung
+!!------------|-------|-----|-------------------------------------------------------------
+!! 2026-01-31 |127-131|  L  | ASSOCIATION Vorgaenger_Nachfolger_Dienstbarkeitsgrenze
+
 !!@ technicalContact = mailto:dmav@swisstopo.ch
 !!@ furtherInformation = https://www.cadastre-manual.admin.ch/de/modelldokumentation-dmav
 !!@ IDGeoIV = "228.5"
-MODEL DMAV_Dienstbarkeitsgrenzen_V1_0 (de)
-  AT "https://models.geo.admin.ch/V_D/" VERSION "2024-09-20" =
+MODEL DMAV_Dienstbarkeitsgrenzen_V1_1 (de)
+  AT "https://models.geo.admin.ch/V_D/" VERSION "2026-01-31" =
   IMPORTS GeometryCHLV95_V2;
   IMPORTS DMAVTYM_Geometrie_V1_0;
   IMPORTS DMAVTYM_Grafik_V1_0;
@@ -90,11 +96,6 @@ MODEL DMAV_Dienstbarkeitsgrenzen_V1_0 (de)
         untergehende_Dienstbarkeitsgrenze -- {0..*} Dienstbarkeitsgrenze;
     END Untergang_Dienstbarkeitsgrenze;
 
-    ASSOCIATION Vorgaenger_Nachfolger_Dienstbarkeitsgrenze =
-        Vorgaenger -- {0..1} Dienstbarkeitsgrenze;
-        Nachfolger -- {0..*} Dienstbarkeitsgrenze;
-    END Vorgaenger_Nachfolger_Dienstbarkeitsgrenze;
-    
     VIEW Dienstbarkeitsgrenze_Gueltig
      	PROJECTION OF Dienstbarkeitsgrenze;
     	WHERE DEFINED(Dienstbarkeitsgrenze->Entstehung) AND DEFINED(Dienstbarkeitsgrenze->Entstehung->Grundbucheintrag) AND (NOT(DEFINED(Dienstbarkeitsgrenze->Untergang)) OR NOT(DEFINED(Dienstbarkeitsgrenze->Untergang->Grundbucheintrag)));
@@ -105,4 +106,4 @@ MODEL DMAV_Dienstbarkeitsgrenzen_V1_0 (de)
     
   END Dienstbarkeitsgrenzen;
  
-END DMAV_Dienstbarkeitsgrenzen_V1_0.
+END DMAV_Dienstbarkeitsgrenzen_V1_1.

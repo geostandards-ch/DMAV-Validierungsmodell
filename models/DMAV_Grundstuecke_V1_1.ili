@@ -11,18 +11,26 @@ INTERLIS 2.4;
 !! www.cadastre.ch und www.interlis.ch
 !!
 !! Version: 1 deutsch
-!! Dateiname: DMAV_Grundstuecke_V1_0.ili
+!! Dateiname: DMAV_Grundstuecke_V1_1.ili
 !!
 !! Das vorliegende Datenmodell gilt fuer den Bezugsrahmen "Landesvermessung 1903+
 !! (LV95)".
 !!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+!! Typ: A=Änderung, E=Ergänzung, L=Löschung
+!!
+!! Version    | Line  | Typ | Bemerkung
+!!------------|-------|-----|-------------------------------------------------------------
+!! 2026-01-31 | 98-102|  L  | ASSOCIATION Vorgaenger_Nachfolger_Grenzpunkt
+!! 2026-01-31 |142-146|  L  | ASSOCIATION Vorgaenger_Nachfolger_Grundstueck
+!! 2026-01-31 |    193|  E  | IstBaurecht: BOOLEAN;
+
 !!@ technicalContact = mailto:dmav@swisstopo.ch
 !!@ furtherInformation = https://www.cadastre-manual.admin.ch/de/modelldokumentation-dmav
 !!@ IDGeoIV = "228.4"
-MODEL DMAV_Grundstuecke_V1_0 (de)
-  AT "https://models.geo.admin.ch/V_D/" VERSION "2024-05-15" =
+MODEL DMAV_Grundstuecke_V1_1 (de)
+  AT "https://models.geo.admin.ch/V_D/" VERSION "2026-01-31" =
   IMPORTS Units;
   IMPORTS GeometryCHLV95_V2;
   IMPORTS DMAVTYM_Geometrie_V1_0;
@@ -90,11 +98,6 @@ MODEL DMAV_Grundstuecke_V1_0 (de)
       untergehender_Grenzpunkt -- {0..*} Grenzpunkt;
     END Untergang_Grenzpunkt;
 
-    ASSOCIATION Vorgaenger_Nachfolger_Grenzpunkt =
-      Vorgaenger -- {0..1} Grenzpunkt;
-      Nachfolger -- {0..*} Grenzpunkt;
-    END Vorgaenger_Nachfolger_Grenzpunkt;
-    
     VIEW Grenzpunkt_Gueltig
      	PROJECTION OF Grenzpunkt;
     	WHERE DEFINED(Grenzpunkt->Entstehung) AND DEFINED(Grenzpunkt->Entstehung->Grundbucheintrag) AND (NOT(DEFINED(Grenzpunkt->Untergang)) OR NOT(DEFINED(Grenzpunkt->Untergang->Grundbucheintrag)));
@@ -134,11 +137,6 @@ MODEL DMAV_Grundstuecke_V1_0 (de)
       untergehendes_Grundstueck -- {0..*} Grundstueck;
     END Untergang_Grundstueck;
 
-    ASSOCIATION Vorgaenger_Nachfolger_Grundstueck =
-      Vorgaenger -- {0..1} Grundstueck;
-      Nachfolger -- {0..*} Grundstueck;
-    END Vorgaenger_Nachfolger_Grundstueck;
-    
     VIEW Grundstueck_Gueltig
      	PROJECTION OF Grundstueck;
     	WHERE DEFINED(Grundstueck->Entstehung) AND DEFINED(Grundstueck->Entstehung->Grundbucheintrag) AND (NOT(DEFINED(Grundstueck->Untergang)) OR NOT(DEFINED(Grundstueck->Untergang->Grundbucheintrag)));
@@ -192,6 +190,7 @@ MODEL DMAV_Grundstuecke_V1_0 (de)
         WITHOUT OVERLAPS > 0.002;
       Flaechenmass: MANDATORY 1 .. 999999999 [Units.m2];
       Streitig: GeometryCHLV95_V2.MultiLine;
+      IstBaurecht: BOOLEAN;
       !! Verlauf einer streitigen Grenze muss auf derselben SelbstRechtgeometrie liegen
       MANDATORY CONSTRAINT CH041601: NOT(DEFINED(Streitig)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Streitig);
     END SelbstaendigesDauerndesRecht;
@@ -260,4 +259,4 @@ MODEL DMAV_Grundstuecke_V1_0 (de)
     
   END Grundstuecke;
  
-END DMAV_Grundstuecke_V1_0.
+END DMAV_Grundstuecke_V1_1.

@@ -11,18 +11,29 @@ INTERLIS 2.4;
 !! www.cadastre.ch und www.interlis.ch
 !!
 !! Version: 1 deutsch
-!! Dateiname: DMAV_Rohrleitungen_V1_0.ili
+!! Dateiname: DMAV_Rohrleitungen_V1_1.ili
 !!
 !! Das vorliegende Datenmodell gilt fuer den Bezugsrahmen "Landesvermessung 1903+
 !! (LV95)".
 !!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+!! Typ: A=Änderung, E=Ergänzung, L=Löschung
+!!
+!! Version    | Line  | Typ | Bemerkung
+!!------------|-------|-----|-------------------------------------------------------------
+!! 2026-01-31 | 98-102|  L  | ASSOCIATION Untergang_Leitungsobjekt
+!! 2026-01-31 |103-107|  L  | ASSOCIATION Vorgaenger_Nachfolger_Leitungsobjekt
+!! 2026-01-31 |108-114|  L  | VIEW Leitungsobjekt_Gueltig
+!! 2026-01-31 |135-139|  L  | ASSOCIATION Untergang_Signal
+!! 2026-01-31 |140-144|  L  | ASSOCIATION Vorgaenger_Nachfolger_Signal
+!! 2026-01-31 |145-151|  L  | VIEW Signal_Gueltig
+
 !!@ technicalContact = mailto:dmav@swisstopo.ch
 !!@ furtherInformation = https://www.cadastre-manual.admin.ch/de/modelldokumentation-dmav
 !!@ IDGeoIV = "228.10"
-MODEL DMAV_Rohrleitungen_V1_0 (de)
-  AT "https://models.geo.admin.ch/V_D/" VERSION "2024-05-15" =
+MODEL DMAV_Rohrleitungen_V1_1 (de)
+  AT "https://models.geo.admin.ch/V_D/" VERSION "2026-01-31" =
   IMPORTS GeometryCHLV95_V2;
   IMPORTS DMAVTYM_Geometrie_V1_0;
   IMPORTS DMAVTYM_Modinfo_V1_0;
@@ -90,23 +101,7 @@ MODEL DMAV_Rohrleitungen_V1_0 (de)
       entstehendes_Leitungsobjekt -- {0..*} Leitungsobjekt;
     END Entstehung_Leitungsobjekt;
 
-    ASSOCIATION Untergang_Leitungsobjekt =
-      Untergang -- {0..1} RLNachfuehrung;
-      untergehendes_Leitungsobjekt -- {0..*} Leitungsobjekt;
-    END Untergang_Leitungsobjekt;
-
-    ASSOCIATION Vorgaenger_Nachfolger_Leitungsobjekt =
-      Vorgaenger -- {0..1} Leitungsobjekt;
-      Nachfolger -- {0..*} Leitungsobjekt;
-    END Vorgaenger_Nachfolger_Leitungsobjekt;
     
-    VIEW Leitungsobjekt_Gueltig
-     	PROJECTION OF Leitungsobjekt;
-    	WHERE DEFINED(Leitungsobjekt->Entstehung) AND NOT(DEFINED(Leitungsobjekt->Untergang));
-    	=
-    	ALL OF Leitungsobjekt;
-    END Leitungsobjekt_Gueltig;
-
     CLASS Signal =
       Nummer: MANDATORY TEXT*12;
       Betreiber: MANDATORY TEXT*30;
@@ -126,23 +121,6 @@ MODEL DMAV_Rohrleitungen_V1_0 (de)
       Entstehung -- {1} RLNachfuehrung;
       entstehendes_Signal -- {0..*} Signal;
     END Entstehung_Signal;
-
-    ASSOCIATION Untergang_Signal =
-      Untergang -- {0..1} RLNachfuehrung;
-      untergehendes_Signal -- {0..*} Signal;
-    END Untergang_Signal;
-
-    ASSOCIATION Vorgaenger_Nachfolger_Signal =
-      Vorgaenger -- {0..1} Signal;
-      Nachfolger -- {0..*} Signal;
-    END Vorgaenger_Nachfolger_Signal;
-    
-    VIEW Signal_Gueltig
-     	PROJECTION OF Signal;
-    	WHERE DEFINED(Signal->Entstehung) AND NOT(DEFINED(Signal->Untergang));
-    	=
-    	ALL OF Signal;
-    END Signal_Gueltig;
 
     CLASS Messpunkt =
       Nummer:  TEXT*12;
@@ -164,4 +142,4 @@ MODEL DMAV_Rohrleitungen_V1_0 (de)
 
   END Rohrleitungen;
  
-END DMAV_Rohrleitungen_V1_0.
+END DMAV_Rohrleitungen_V1_1.

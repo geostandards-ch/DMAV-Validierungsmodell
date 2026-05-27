@@ -1,6 +1,6 @@
 INTERLIS 2.4;
 
-MODEL DMAV_V1_0_Einzelobjekte_Validierung (de) 
+MODEL DMAV_V1_1_Einzelobjekte_Validierung (de) 
 AT "https://www.kgk-cgc.ch/" 
 VERSION "2025-03-30" =
   
@@ -10,23 +10,23 @@ IMPORTS UNQUALIFIED Math_V2_1;
 IMPORTS UNQUALIFIED ObjectPool_V1_0;
 IMPORTS UNQUALIFIED Elements_V1_0;
 IMPORTS DMAVTYM_Topologie_V1_0;
-IMPORTS DMAV_FixpunkteAVKategorie3_V1_0;
-IMPORTS DMAV_Bodenbedeckung_V1_0;
-IMPORTS DMAV_Einzelobjekte_V1_0;
-IMPORTS DMAV_Nomenklatur_V1_0;
-IMPORTS DMAV_Grundstuecke_V1_0;
-IMPORTS DMAV_Rohrleitungen_V1_0;
+IMPORTS DMAV_FixpunkteAVKategorie3_V1_1;
+IMPORTS DMAV_Bodenbedeckung_V1_1;
+IMPORTS DMAV_Einzelobjekte_V1_1;
+IMPORTS DMAV_Nomenklatur_V1_1;
+IMPORTS DMAV_Grundstuecke_V1_1;
+IMPORTS DMAV_Rohrleitungen_V1_1;
 IMPORTS DMAV_HoheitsgrenzenAV_V1_0;
-IMPORTS DMAV_Toleranzstufen_V1_0;
-IMPORTS DMAV_Gebaeudeadressen_V1_0;
+IMPORTS DMAV_Toleranzstufen_V1_1;
+IMPORTS DMAV_Gebaeudeadressen_V1_1;
 IMPORTS KGKCGC_FPDS2_V1_1;
 IMPORTS FixpunkteLV_V1_0;
 
     VIEW TOPIC Einzelobjekte_Validierung = 
-    DEPENDS ON DMAV_Einzelobjekte_V1_0.Einzelobjekte;
+    DEPENDS ON DMAV_Einzelobjekte_V1_1.Einzelobjekte;
   
         VIEW v_Einzelobjekt
-            PROJECTION OF DMAV_Einzelobjekte_V1_0.Einzelobjekte.Einzelobjekt;
+            PROJECTION OF DMAV_Einzelobjekte_V1_1.Einzelobjekte.Einzelobjekt;
         =
             ALL OF Einzelobjekt;
 
@@ -418,7 +418,7 @@ IMPORTS FixpunkteLV_V1_0;
         END v_Einzelobjekt;
 
         VIEW v_Messpunkt
-            PROJECTION OF DMAV_Einzelobjekte_V1_0.Einzelobjekte.Messpunkt;
+            PROJECTION OF DMAV_Einzelobjekte_V1_1.Einzelobjekte.Messpunkt;
         =
             ALL OF Messpunkt;
 
@@ -430,8 +430,8 @@ IMPORTS FixpunkteLV_V1_0;
             !! Kategorie: modellübergreifend
             !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH054351: (
-                NOT(DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_0.FixpunkteAVKategorie3.LFP3), >>DMAV_FixpunkteAVKategorie3_V1_0.FixpunkteAVKategorie3.LFP3->Geometrie))
-                AND NOT(DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_0.Grundstuecke.Grenzpunkt), >>DMAV_Grundstuecke_V1_0.Grundstuecke.Grenzpunkt->Geometrie))
+                NOT(DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_1.FixpunkteAVKategorie3.LFP3), >>DMAV_FixpunkteAVKategorie3_V1_1.FixpunkteAVKategorie3.LFP3->Geometrie))
+                AND NOT(DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_1.Grundstuecke.Grenzpunkt), >>DMAV_Grundstuecke_V1_1.Grundstuecke.Grenzpunkt->Geometrie))
                 AND NOT(DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, ObjectPool_V1_0.allObjects(>FixpunkteLV_V1_0.FixpunkteLV.LFP1), >>FixpunkteLV_V1_0.FixpunkteLV.LFP1->Geometrie))
                 AND NOT(DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>KGKCGC_FPDS2_V1_1.FPDS2.FixpunktVersion),"NOT(DEFINED(UntergegangenAm))"), >>KGKCGC_FPDS2_V1_1.FPDS2.FixpunktVersion->Geometrie))
             );
@@ -440,4 +440,4 @@ IMPORTS FixpunkteLV_V1_0;
 
     END Einzelobjekte_Validierung;
 
-END DMAV_V1_0_Einzelobjekte_Validierung.
+END DMAV_V1_1_Einzelobjekte_Validierung.

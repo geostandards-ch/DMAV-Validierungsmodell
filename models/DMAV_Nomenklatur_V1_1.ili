@@ -11,18 +11,31 @@ INTERLIS 2.4;
 !! www.cadastre.ch und www.interlis.ch
 !!
 !! Version: 1 deutsch
-!! Dateiname: DMAV_Nomenklatur_V1_0.ili
+!! Dateiname: DMAV_Nomenklatur_V1_1.ili
 !!
 !! Das vorliegende Datenmodell gilt fuer den Bezugsrahmen "Landesvermessung 1903+
 !! (LV95)".
 !!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+!! Typ: A=Änderung, E=Ergänzung, L=Löschung
+!!
+!! Version    | Line  | Typ | Bemerkung
+!!------------|-------|-----|-------------------------------------------------------------
+!! 2026-01-31 |     50|  A  | Geometrie: MANDATORY AREA WITH ((STRAIGHTS, ARCS) VERTEX 
+!!            |       |     | GeometryCHLV95_V2.Coord2 WITHOUT OVERLAPS > 0.002;
+!! 2026-01-31 |  61-65|  L  | ASSOCIATION Untergang_Flurname
+!! 2026-01-31 |  66-73|  L  | VIEW Flurname_Gueltig
+!! 2026-01-31 |  87-91|  L  | ASSOCIATION Untergang_Ortsname
+!! 2026-01-31 |  92-98|  L  | VIEW Ortsname_Gueltig
+!! 2026-01-31 |110-114|  L  | ASSOCIATION Untergang_Gelaendename
+!! 2026-01-31 |115-121|  L  | VIEW Untergang_Gelaendename
+
 !!@ technicalContact = mailto:dmav@swisstopo.ch
 !!@ furtherInformation = https://www.cadastre-manual.admin.ch/de/modelldokumentation-dmav
 !!@ IDGeoIV = "228.7"
-MODEL DMAV_Nomenklatur_V1_0 (de)
-  AT "https://models.geo.admin.ch/V_D/" VERSION "2024-05-15" =
+MODEL DMAV_Nomenklatur_V1_1 (de)
+  AT "https://models.geo.admin.ch/V_D/" VERSION "2026-01-31" =
   IMPORTS GeometryCHLV95_V2;
   IMPORTS DMAVTYM_Grafik_V1_0;
 
@@ -42,7 +55,7 @@ MODEL DMAV_Nomenklatur_V1_0 (de)
 
     CLASS Flurname =
       Name: MANDATORY TEXT*60;
-      Geometrie: MANDATORY SURFACE WITH (STRAIGHTS, ARCS) VERTEX GeometryCHLV95_V2.Coord2
+      Geometrie: MANDATORY AREA WITH (STRAIGHTS, ARCS) VERTEX GeometryCHLV95_V2.Coord2
         WITHOUT OVERLAPS > 0.002;
       Fiktiv : MANDATORY BOOLEAN;
       Textposition: BAG {0..*} OF DMAVTYM_Grafik_V1_0.Textposition;
@@ -52,19 +65,7 @@ MODEL DMAV_Nomenklatur_V1_0 (de)
       Entstehung -- {1} NKNachfuehrung;
       entstehender_Flurname -- {0..*} Flurname;
     END Entstehung_Flurname;
-    
-    ASSOCIATION Untergang_Flurname =
-      Untergang -- {0..1} NKNachfuehrung;
-      untergehendes_Flurname -- {0..*} Flurname;
-    END Untergang_Flurname;
-    
-    VIEW Flurname_Gueltig
-     	PROJECTION OF Flurname;
-    	WHERE DEFINED(Flurname->Entstehung) AND NOT( DEFINED(Flurname->Untergang));
-    	=
-    	ALL OF Flurname;
-    	SET CONSTRAINT CH070501: INTERLIS.areAreas(ALL, UNDEFINED, >> Geometrie);
-    END Flurname_Gueltig;
+
     
     CLASS Ortsname =
       Name: MANDATORY TEXT*60;
@@ -79,17 +80,6 @@ MODEL DMAV_Nomenklatur_V1_0 (de)
       entstehender_Ortsname -- {0..*} Ortsname;
     END Entstehung_Ortsname;
 
-    ASSOCIATION Untergang_Ortsname =
-      Untergang -- {0..1} NKNachfuehrung;
-      untergehendes_Ortsname -- {0..*} Ortsname;
-    END Untergang_Ortsname;
-    
-    VIEW Ortsname_Gueltig
-     	PROJECTION OF Ortsname;
-    	WHERE DEFINED(Ortsname->Entstehung) AND NOT( DEFINED(Ortsname->Untergang));
-    	=
-    	ALL OF Ortsname;
-    END Ortsname_Gueltig;
 
     CLASS Gelaendename =
       Name: MANDATORY TEXT*60;
@@ -101,19 +91,7 @@ MODEL DMAV_Nomenklatur_V1_0 (de)
       Entstehung -- {1} NKNachfuehrung;
       entstehender_Gelaendename -- {0..*} Gelaendename;
     END Entstehung_Gelaendename;
-
-    ASSOCIATION Untergang_Gelaendename =
-      Untergang -- {0..1} NKNachfuehrung;
-      untergehendes_Gelaendename -- {0..*} Gelaendename;
-    END Untergang_Gelaendename;
-    
-    VIEW Gelaendename_Gueltig
-     	PROJECTION OF Gelaendename;
-    	WHERE DEFINED(Gelaendename->Entstehung) AND NOT( DEFINED(Gelaendename->Untergang));
-    	=
-    	ALL OF Gelaendename;
-    END Gelaendename_Gueltig;
     
   END Nomenklatur;
  
-END DMAV_Nomenklatur_V1_0.
+END DMAV_Nomenklatur_V1_1.
