@@ -2,26 +2,14 @@ INTERLIS 2.4;
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!
-!! Datenmodell der amtlichen Vermessung "Bund" (DMAV)
-!! beschrieben in INTERLIS Version 2.4
-!!
-!! Bundesamt fuer Landestopographie (swisstopo)
-!! Fachstelle Eidgenoessische Vermessungsdirektion (V+D)
-!! CH-3084 Wabern
-!! www.cadastre.ch und www.interlis.ch
-!!
-!! Version: 1.1 deutsch
-!! Dateiname: DMAVTYM_Topologie_V1_0.ili
-!!
-!! Das vorliegende Datenmodell gilt fuer den Bezugsrahmen "Landesvermessung 1903+
-!! (LV95)".
+!! Zusatzfunktionen für ilivalidator mit DMAV
 !!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-!!@ technicalContact = mailto:dmav@swisstopo.ch
-!!@ furtherInformation = https://www.cadastre-manual.admin.ch/de/modelldokumentation-dmav
-TYPE MODEL DMAVTYM_Topologie_V1_0 (de)
-  AT "https://models.geo.admin.ch/V_D/" VERSION "2026-02-26" =
+!!@ technicalContact = mailto:romedi.filli@sh.ch
+!!@ furtherInformation = https://github.com/geostandards-ch/DMAV-Validierungsmodell/
+TYPE MODEL KGKCGC_DMAVTYM_Topologie_V1_1 (de)
+  AT "https://models.kgk-cgc.ch/" VERSION "2026-02-26" =
 
   /**
    * Tests if the line or multiline is fully covered by an outer or inner ring of the surface.
@@ -131,4 +119,4 @@ TYPE MODEL DMAVTYM_Topologie_V1_0 (de)
     Objects: BAG OF ANYSTRUCTURE;
     SurfaceAttr: ATTRIBUTE OF @ Objects): BAG OF ANYSTRUCTURE;
 
-END DMAVTYM_Topologie_V1_0.
+END KGKCGC_DMAVTYM_Topologie_V1_1.

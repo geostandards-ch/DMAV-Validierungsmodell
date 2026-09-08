@@ -9,7 +9,7 @@ IMPORTS UNQUALIFIED Text_V2;
 IMPORTS UNQUALIFIED Math_V2_1;
 IMPORTS UNQUALIFIED ObjectPool_V1_0;
 IMPORTS UNQUALIFIED Elements_V1_0;
-IMPORTS DMAVTYM_Topologie_V1_0;
+IMPORTS KGKCGC_DMAVTYM_Topologie_V1_1;
 IMPORTS DMAV_FixpunkteAVKategorie3_V1_1;
 IMPORTS DMAV_Bodenbedeckung_V1_1;
 IMPORTS DMAV_Einzelobjekte_V1_1;
@@ -78,7 +78,7 @@ IMPORTS FixpunkteLV_V1_0;
             !! Umsetzung Phase 2;
             !! Failcase für Testsuite erstellt (Testsuite_DMAV/DMAV_V1_0_Validierung/DMAV_V1_0_Validierung.Grundstuecke_Validierung.v_Liegenschaft_CH086951)
             MANDATORY CONSTRAINT CH086951: (
-                NOT(Grundstueck->Fiktiv) => (DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, Elements_V1_0.concat(
+                NOT(Grundstueck->Fiktiv) => (KGKCGC_DMAVTYM_Topologie_V1_1.pointInPoints(THIS, >>Geometrie, Elements_V1_0.concat(
                                                 Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_1.Grundstuecke.Grenzpunkt), "Geometrie"),
                                                 Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_1.FixpunkteAVKategorie3.LFP3), "Geometrie")), UNDEFINED))
                 );
@@ -134,7 +134,7 @@ IMPORTS FixpunkteLV_V1_0;
             !! Kategorie: modellübergreifend
             !! Umsetzung Phase 2;
             MANDATORY CONSTRAINT CH087351: (
-                NOT(Grundstueck->Fiktiv) => (DMAVTYM_Topologie_V1_0.pointInPoints(THIS, >>Geometrie, Elements_V1_0.concat(Elements_V1_0.concat(Elements_V1_0.concat(
+                NOT(Grundstueck->Fiktiv) => (KGKCGC_DMAVTYM_Topologie_V1_1.pointInPoints(THIS, >>Geometrie, Elements_V1_0.concat(Elements_V1_0.concat(Elements_V1_0.concat(
                                                 Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_Grundstuecke_V1_1.Grundstuecke.Grenzpunkt), "Geometrie"),
                                                 Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.allObjects(>DMAV_FixpunkteAVKategorie3_V1_1.FixpunkteAVKategorie3.LFP3), "Geometrie")),
                                                 Elements_V1_0.valuesOfPathAnyStructure(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>KGKCGC_FPDS2_V1_1.FPDS2.FixpunktVersion),"NOT(DEFINED(UntergegangenAm))"), "Geometrie")),

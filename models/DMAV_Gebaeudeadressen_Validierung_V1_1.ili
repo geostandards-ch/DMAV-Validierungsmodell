@@ -9,7 +9,7 @@ IMPORTS UNQUALIFIED Text_V2;
 IMPORTS UNQUALIFIED Math_V2_1;
 IMPORTS UNQUALIFIED ObjectPool_V1_0;
 IMPORTS UNQUALIFIED Elements_V1_0;
-IMPORTS DMAVTYM_Topologie_V1_0;
+IMPORTS KGKCGC_DMAVTYM_Topologie_V1_1;
 IMPORTS DMAV_FixpunkteAVKategorie3_V1_1;
 IMPORTS DMAV_Bodenbedeckung_V1_1;
 IMPORTS DMAV_Einzelobjekte_V1_1;
@@ -32,7 +32,7 @@ IMPORTS OfficialIndexOfLocalities_V1_0;
             ALL OF Gebaeudeeingang;
             !! Geometrische Verknüpfung zu OfficialIndexOfLocalities_V1_0 erstellen
             Zip: REFERENCE TO (EXTERNAL) OfficialIndexOfLocalities_V1_0.OfficialIndexOfLocalities.ZIP
-                    := DMAVTYM_Topologie_V1_0.geometricFilter(Gebaeudeeingang, >>Geometrie, allObjects(>OfficialIndexOfLocalities_V1_0.OfficialIndexOfLocalities.ZIP), >>OfficialIndexOfLocalities_V1_0.OfficialIndexOfLocalities.ZIP->Geometry);
+                    := KGKCGC_DMAVTYM_Topologie_V1_1.geometricFilter(Gebaeudeeingang, >>Geometrie, allObjects(>OfficialIndexOfLocalities_V1_0.OfficialIndexOfLocalities.ZIP), >>OfficialIndexOfLocalities_V1_0.OfficialIndexOfLocalities.ZIP->Geometry);
 
             !!@ category = warning
             !!@ name = CH193851
@@ -64,7 +64,7 @@ IMPORTS OfficialIndexOfLocalities_V1_0;
             !! Umsetzung Phase 2;
             !! Failcase für Testsuite erstellt (Testsuite_DMAV/DMAV_V1_0_Validierung/DMAV_V1_0_Validierung.Gebaeudeadressen_Validierung.v_Gebaeudeeingang.CH194254)
             MANDATORY CONSTRAINT CH194254: (
-                (ImModul == #Bodenbedeckung) => DMAVTYM_Topologie_V1_0.isInside(THIS, >>Geometrie, ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung), "Bodenbedeckungsart == #Gebaeude"), >>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung->Geometrie)
+                (ImModul == #Bodenbedeckung) => KGKCGC_DMAVTYM_Topologie_V1_1.isInside(THIS, >>Geometrie, ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung), "Bodenbedeckungsart == #Gebaeude"), >>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung->Geometrie)
             );  
 
             !!@ category = warning
@@ -113,7 +113,7 @@ IMPORTS OfficialIndexOfLocalities_V1_0;
             !! Kategorie: modellübergreifend
             !! Umsetzung Phase 2;
             SET CONSTRAINT GWRA17: WHERE (Gebaeudestatus == #real AND ImModul == #Bodenbedeckung): (
-                DMAVTYM_Topologie_V1_0.isInside(THIS, >>Geometrie,(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung), "Objektstatus == #real AND EGID=={EGID} AND Bodenbedeckungsart == #Gebaeude")), >>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung->Geometrie)
+                KGKCGC_DMAVTYM_Topologie_V1_1.isInside(THIS, >>Geometrie,(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung), "Objektstatus == #real AND EGID=={EGID} AND Bodenbedeckungsart == #Gebaeude")), >>DMAV_Bodenbedeckung_V1_1.Bodenbedeckung.Bodenbedeckung->Geometrie)
             );
 
             !!@ name = GWRB01
