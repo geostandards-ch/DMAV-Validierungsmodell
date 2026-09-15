@@ -25,7 +25,7 @@ MODEL DMAV_HoheitsgrenzenAV_V1_0 (de)
   AT "https://models.geo.admin.ch/V_D/" VERSION "2024-09-20" =
   IMPORTS GeometryCHLV95_V2;
   IMPORTS CHAdminCodes_V2;
-  IMPORTS KGKCGC_DMAVTYM_Topologie_V1_1;
+  IMPORTS DMAVTYM_Topologie_V1_0;
   
   TOPIC HoheitsgrenzenAV =
     BASKET OID AS INTERLIS.UUIDOID;
@@ -79,9 +79,9 @@ MODEL DMAV_HoheitsgrenzenAV_V1_0 (de)
       Provisorisch: GeometryCHLV95_V2.MultiLine;
       Undefiniert: GeometryCHLV95_V2.MultiLine;
       !! Verlauf einer streitigen Grenze muss auf derselben Geometrie liegen
-      MANDATORY CONSTRAINT CH030701: NOT(DEFINED(Streitig)) OR KGKCGC_DMAVTYM_Topologie_V1_1.covers(THIS,>>Geometrie,THIS,>>Streitig);
-      MANDATORY CONSTRAINT CH030702: NOT(DEFINED(Provisorisch)) OR KGKCGC_DMAVTYM_Topologie_V1_1.covers(THIS,>>Geometrie,THIS,>>Provisorisch);
-      MANDATORY CONSTRAINT CH030703: NOT(DEFINED(Undefiniert)) OR KGKCGC_DMAVTYM_Topologie_V1_1.covers(THIS,>>Geometrie,THIS,>>Undefiniert);
+      MANDATORY CONSTRAINT CH030701: NOT(DEFINED(Streitig)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Streitig);
+      MANDATORY CONSTRAINT CH030702: NOT(DEFINED(Provisorisch)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Provisorisch);
+      MANDATORY CONSTRAINT CH030703: NOT(DEFINED(Undefiniert)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Undefiniert);
     END Gemeindegrenze;
 
     ASSOCIATION Entstehung_Gemeindegrenze =

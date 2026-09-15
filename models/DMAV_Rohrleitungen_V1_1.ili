@@ -38,7 +38,7 @@ MODEL DMAV_Rohrleitungen_V1_1 (de)
   IMPORTS DMAVTYM_Geometrie_V1_0;
   IMPORTS DMAVTYM_Modinfo_V1_0;
   IMPORTS DMAVTYM_Qualitaet_V1_0;
-  IMPORTS KGKCGC_DMAVTYM_Topologie_V1_1;
+  IMPORTS DMAVTYM_Topologie_V1_0;
   IMPORTS DMAVTYM_Grafik_V1_0;
 
   TOPIC Rohrleitungen = 
@@ -68,7 +68,7 @@ MODEL DMAV_Rohrleitungen_V1_1 (de)
       Geometrie: MANDATORY SURFACE WITH (STRAIGHTS, ARCS) VERTEX GeometryCHLV95_V2.Coord2
         WITHOUT OVERLAPS > 0.002;
       Sichtbar: GeometryCHLV95_V2.MultiLine;        
-      MANDATORY CONSTRAINT CH100201: NOT(DEFINED(Sichtbar)) OR KGKCGC_DMAVTYM_Topologie_V1_1.covers(THIS,>>Geometrie,THIS,>>Sichtbar);
+      MANDATORY CONSTRAINT CH100201: NOT(DEFINED(Sichtbar)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Sichtbar);
     END Flaechenelement;
 
     STRUCTURE Linienelement =

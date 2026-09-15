@@ -19,12 +19,15 @@ TYPE MODEL KGKCGC_DMAVTYM_Topologie_V1_1 (de)
    * MultiLineObject: object containing the multiline geometry that should be covered by the surface geometry.
    * MultiLineAttr: the multiline attribute of the MultiLineObject.
    * Since 2025-05-06
-   */
+   * in official swisstopo model DMAVTYM_Topologie_V1_0 defined
+  
   FUNCTION covers(
     SurfaceObjects: CLASS;
     SurfaceAttr: ATTRIBUTE;
     MultiLineObject: ANYSTRUCTURE;
     MultiLineAttr: ATTRIBUTE): BOOLEAN;
+
+   */
 
   /**
    * Tests if the line or multiline is fully covered by another line or by an outer or inner ring of a surface.

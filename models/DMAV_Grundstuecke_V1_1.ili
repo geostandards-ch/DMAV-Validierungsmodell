@@ -34,7 +34,7 @@ MODEL DMAV_Grundstuecke_V1_1 (de)
   IMPORTS Units;
   IMPORTS GeometryCHLV95_V2;
   IMPORTS DMAVTYM_Geometrie_V1_0;
-  IMPORTS KGKCGC_DMAVTYM_Topologie_V1_1;
+  IMPORTS DMAVTYM_Topologie_V1_0;
   IMPORTS DMAVTYM_Vermarkung_V1_0;
   IMPORTS DMAVTYM_Qualitaet_V1_0;
   IMPORTS DMAVTYM_Grafik_V1_0;
@@ -157,7 +157,7 @@ MODEL DMAV_Grundstuecke_V1_1 (de)
       Streitig: GeometryCHLV95_V2.MultiLine;
       Qualitaetsstandard: MANDATORY DMAVTYM_Qualitaet_V1_0.Qualitaetsstandard;
       !! Verlauf einer streitigen Grenze muss auf derselben Liegenschaftsgeometrie liegen
-      MANDATORY CONSTRAINT CH041201: NOT(DEFINED(Streitig)) OR KGKCGC_DMAVTYM_Topologie_V1_1.covers(THIS,>>Geometrie,THIS,>>Streitig);
+      MANDATORY CONSTRAINT CH041201: NOT(DEFINED(Streitig)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Streitig);
     END Liegenschaft;
 
     ASSOCIATION GrundstueckLiegenschaft =
@@ -192,7 +192,7 @@ MODEL DMAV_Grundstuecke_V1_1 (de)
       Streitig: GeometryCHLV95_V2.MultiLine;
       IstBaurecht: BOOLEAN;
       !! Verlauf einer streitigen Grenze muss auf derselben SelbstRechtgeometrie liegen
-      MANDATORY CONSTRAINT CH041601: NOT(DEFINED(Streitig)) OR KGKCGC_DMAVTYM_Topologie_V1_1.covers(THIS,>>Geometrie,THIS,>>Streitig);
+      MANDATORY CONSTRAINT CH041601: NOT(DEFINED(Streitig)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Streitig);
     END SelbstaendigesDauerndesRecht;
 
     ASSOCIATION GrundstueckSelbstaendigesDauerndesRecht =
@@ -225,7 +225,7 @@ MODEL DMAV_Grundstuecke_V1_1 (de)
       Flaechenmass: MANDATORY 1 .. 999999999 [Units.m2];
       Streitig: GeometryCHLV95_V2.MultiLine;
       !! Verlauf einer streitigen Grenze muss auf derselben Bergwerkgeometrie liegen
-      MANDATORY CONSTRAINT CH042001: NOT(DEFINED(Streitig)) OR KGKCGC_DMAVTYM_Topologie_V1_1.covers(THIS,>>Geometrie,THIS,>>Streitig);
+      MANDATORY CONSTRAINT CH042001: NOT(DEFINED(Streitig)) OR DMAVTYM_Topologie_V1_0.covers(THIS,>>Geometrie,THIS,>>Streitig);
     END Bergwerk;
 
     ASSOCIATION GrundstueckBergwerk =
