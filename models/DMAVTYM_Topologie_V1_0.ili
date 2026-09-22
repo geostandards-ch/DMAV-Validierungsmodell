@@ -24,7 +24,7 @@ TYPE MODEL DMAVTYM_Topologie_V1_0 (de)
   AT "https://models.geo.admin.ch/V_D/" VERSION "2024-05-15" =
   
   FUNCTION covers(
-    SurfaceObjects: CLASS;
+    SurfaceObjects: OBJECTS OF ANYCLASS;
     SurfaceAttr: ATTRIBUTE;
     MultiLineObject: ANYSTRUCTURE;
     MultiLineAttr: ATTRIBUTE): BOOLEAN;

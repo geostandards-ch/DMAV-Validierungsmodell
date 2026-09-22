@@ -22,11 +22,10 @@ TYPE MODEL KGKCGC_DMAVTYM_Topologie_V1_1 (de)
    * in official swisstopo model DMAVTYM_Topologie_V1_0 defined
   
   FUNCTION covers(
-    SurfaceObjects: CLASS;
+    SurfaceObjects: OBJECTS OF ANYCLASS;
     SurfaceAttr: ATTRIBUTE;
     MultiLineObject: ANYSTRUCTURE;
     MultiLineAttr: ATTRIBUTE): BOOLEAN;
-
    */
 
   /**
