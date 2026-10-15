@@ -21,7 +21,7 @@ IMPORTS DMAV_Toleranzstufen_V1_1;
 IMPORTS DMAV_Gebaeudeadressen_V1_1;
 IMPORTS KGKCGC_FPDS2_V1_1;
 IMPORTS FixpunkteLV_V1_0;
-IMPORTS Gemeinden95_V1_0;
+IMPORTS swissBOUNDARIES3D_ili2_LV95_V1_5;
 
     VIEW TOPIC HoheitsgrenzenAV_Validierung = 
     DEPENDS ON DMAV_HoheitsgrenzenAV_V1_0.HoheitsgrenzenAV;
@@ -40,7 +40,7 @@ IMPORTS Gemeinden95_V1_0;
             !! Umsetzung Phase 2;
             !! Failcase für Testsuite erstellt (Testsuite_DMAV/DMAV_V1_0_Validierung/DMAV_V1_0_Validierung.HoheitsgrenzenAV_Validierung.v_Gemeinde.CH112352)
             MANDATORY CONSTRAINT CH112352: (
-                INTERLIS.objectCount(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>Gemeinden95_V1_0.Gemeinden.Gemeinde), "BFSNr == {BFSNummer} AND Name == {Name}")) == 1
+                INTERLIS.objectCount(ObjectPool_V1_0.filter(ObjectPool_V1_0.allObjects(>swissBOUNDARIES3D_ili2_LV95_V1_5.TLM_GRENZEN.TLM_HOHEITSGEBIET), "BFS_Nummer == {BFSNummer} AND Name == {Name}")) == 1
             );   
 
         END v_Gemeinde;
